@@ -1,4 +1,4 @@
-package cloud.autotests.config;
+package qa.avasilev.config;
 
 import org.aeonbits.owner.ConfigFactory;
 

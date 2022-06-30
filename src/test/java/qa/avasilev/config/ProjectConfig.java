@@ -1,4 +1,4 @@
-package cloud.autotests.config;
+package qa.avasilev.config;
 
 import org.aeonbits.owner.Config;
 
@@ -19,4 +19,5 @@ public interface ProjectConfig extends Config {
     String browserMobileView();
     String remoteDriverUrl();
     String videoStorage();
+    String webUrl();
 }
