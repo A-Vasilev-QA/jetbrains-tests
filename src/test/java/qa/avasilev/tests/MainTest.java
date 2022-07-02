@@ -1,16 +1,16 @@
 package qa.avasilev.tests;
 
-import com.codeborne.selenide.Configuration;
-import qa.avasilev.config.Project;
-import qa.avasilev.helpers.DriverUtils;
 import io.qameta.allure.Description;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import qa.avasilev.pages.IdeaPage;
 import qa.avasilev.pages.MainPage;
 
 import static com.codeborne.selenide.Selenide.*;
+import static com.codeborne.selenide.Condition.*;
+import static com.codeborne.selenide.WebDriverConditions.*;
 import static io.qameta.allure.Allure.step;
-import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.*;
 
 
 public class MainTest extends TestBase {
@@ -20,21 +20,25 @@ public class MainTest extends TestBase {
     void generatedTest() {
 
         step("Open https://www.jetbrains.com/", () -> {
-            open("");
+            open("/");
         });
 
         MainPage mainPage = new MainPage();
 
         step("Open Dev tools upper menu", () -> {
-            mainPage.openDevTools();
+            mainPage.mainMenu.openSubmenu("Developer Tools");
+            assertEquals("IDEs", mainPage.mainMenu.getMainSubmenuFirstHeader());
         });
 
         step("Click IDEA menu item", () -> {
-            mainPage.clickIdeaMenuItem();
+            mainPage.mainMenu.clickMainSubmenuItem("IntelliJ IDEA");
         });
 
-        step("Verify page", () -> {
-            step("// todo: just add selenium action");
+        IdeaPage ideaPage = new IdeaPage();
+
+        step("Verify IDEA page", () -> {
+            webdriver().shouldHave(urlContaining("idea"));
+            assertEquals("IntelliJ IDEA", ideaPage.secondMenu.getProductHeader());
         });
 
         step("Open download page", () -> {
