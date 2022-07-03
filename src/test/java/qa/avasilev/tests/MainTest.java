@@ -3,6 +3,7 @@ package qa.avasilev.tests;
 import io.qameta.allure.Description;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import qa.avasilev.pages.IdeaDownloadPage;
 import qa.avasilev.pages.IdeaPage;
 import qa.avasilev.pages.MainPage;
 
@@ -15,8 +16,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class MainTest extends TestBase {
     @Test
-    @Description("Soon to be implemented by you (or QA.GURU engineers)")
-    @DisplayName("IntelliJ IDEA is downloadable from upper menu")
+    @DisplayName("IntelliJ IDEA page can be reached from upper menu and contains correct links")
     void generatedTest() {
 
         step("Open https://www.jetbrains.com/", () -> {
@@ -42,11 +42,24 @@ public class MainTest extends TestBase {
         });
 
         step("Open download page", () -> {
-            step("// todo: just add selenium action");
+            ideaPage.clickDownloadButton();
         });
 
-        step("Verify page", () -> {
-            step("// todo: just add selenium action");
+        IdeaDownloadPage ideaDownloadPage = new IdeaDownloadPage();
+
+        step("Verify Windows download link", () -> {
+            ideaDownloadPage.selectWindows();
+            assertTrue(ideaDownloadPage.getUltimateDownloadUrl().contains("platform=windows"));
+        });
+
+        step("Verify macOS download link", () -> {
+            ideaDownloadPage.selectMacOs();
+            assertTrue(ideaDownloadPage.getUltimateDownloadUrl().contains("platform=mac"));
+        });
+
+        step("Verify Linux download link", () -> {
+            ideaDownloadPage.selectLinux();
+            assertTrue(ideaDownloadPage.getUltimateDownloadUrl().contains("platform=linux"));
         });
     }
 /*
