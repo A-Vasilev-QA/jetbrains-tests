@@ -12,6 +12,9 @@ public class MainMenu {
 
     private SelenideElement mainMenu = $(".main-menu");
     private SelenideElement mainSubmenu = $("div[data-test='main-submenu']");
+    private SelenideElement searchButton = $("[data-test='site-header-search-action']");
+    private SelenideElement searchInput = $("[data-test='search-input']");
+    private SelenideElement searchResults = $("[data-test='search-results']");
 
     private String mainMenuButtonSelector = ".main-menu-item[data-test-marker='%s']";
     private String submenuButtonSelector = "a span span";
@@ -24,6 +27,13 @@ public class MainMenu {
 
     public void clickMainSubmenuItem(String itemName) {
         $$(submenuButtonSelector).findBy(text(itemName)).click();
+    }
+
+    public void quickSearch(String query, int position) {
+        searchButton.click();
+        searchInput.shouldBe(visible).sendKeys(query);
+        searchResults.shouldBe(visible);
+        searchResults.$(format("a[position='%d']",position)).click();
     }
 
     public String getMainSubmenuFirstHeader(){
