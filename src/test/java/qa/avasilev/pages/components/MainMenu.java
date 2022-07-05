@@ -18,6 +18,7 @@ public class MainMenu {
 
     private String mainMenuButtonSelector = ".main-menu-item[data-test-marker='%s']";
     private String submenuButtonSelector = "a span span";
+    private String seacrhPositionSelector = "a[position='%d']";
 
     public void openSubmenu(String submenuName) {
         mainMenu.shouldBe(visible);
@@ -33,7 +34,7 @@ public class MainMenu {
         searchButton.click();
         searchInput.shouldBe(visible).sendKeys(query);
         searchResults.shouldBe(visible);
-        searchResults.$(format("a[position='%d']",position)).click();
+        searchResults.$(format(seacrhPositionSelector,position)).click();
     }
 
     public String getMainSubmenuFirstHeader(){
