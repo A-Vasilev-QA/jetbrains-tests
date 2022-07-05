@@ -1,14 +1,13 @@
 package qa.avasilev.tests;
 
-import io.qameta.allure.Description;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import qa.avasilev.pages.IdeaDownloadPage;
 import qa.avasilev.pages.IdeaPage;
 import qa.avasilev.pages.MainPage;
+import qa.avasilev.pages.ProductsPage;
 
 import static com.codeborne.selenide.Selenide.*;
-import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.WebDriverConditions.*;
 import static io.qameta.allure.Allure.step;
 import static org.junit.jupiter.api.Assertions.*;
@@ -85,19 +84,37 @@ public class MainTest extends TestBase {
 
         IdeaDownloadPage ideaDownloadPage = new IdeaDownloadPage();
 
-        step("Verify Windows download link", () -> {
-            ideaDownloadPage.selectWindows();
-            assertTrue(ideaDownloadPage.getUltimateDownloadUrl().contains("platform=windows"));
+        assertEquals("IntelliJ IDEA", ideaDownloadPage.secondMenu.getProductHeader());
+    }
+
+    @Test
+    @DisplayName("Idea can be found on products page using filters")
+    public void ideaCanBeFoundInProducts() {
+
+        step("Open https://www.jetbrains.com/", () -> {
+            open("/");
         });
 
-        step("Verify macOS download link", () -> {
-            ideaDownloadPage.selectMacOs();
-            assertTrue(ideaDownloadPage.getUltimateDownloadUrl().contains("platform=mac"));
+        MainPage mainPage = new MainPage();
+
+        step("Click 'All products' link ", () -> {
+            mainPage.openAllProducts();
         });
 
-        step("Verify Linux download link", () -> {
-            ideaDownloadPage.selectLinux();
-            assertTrue(ideaDownloadPage.getUltimateDownloadUrl().contains("platform=linux"));
+        ProductsPage productsPage = new ProductsPage();
+
+        step("Search java in input field and add it into language list", () -> {
+            productsPage.searchLanguage("Java");
+            productsPage.selectOptionByIndex(0);
+        });
+
+        step("Add Kotlin to language list without search", () -> {
+            productsPage.clearSearch();
+            productsPage.selectOptionByHeader("Kotlin");
+        });
+
+        step("Verify, that idea is the first product", () -> {
+            assertEquals("IntelliJ IDEA", productsPage.getCardHeaderByIndex(0));
         });
     }
 
