@@ -32,7 +32,7 @@ public class MainMenu {
 
     public void quickSearch(String query, int position) {
         searchButton.click();
-        searchInput.shouldBe(visible).sendKeys(query);
+        searchInput.shouldBe(visible).setValue(query);
         searchResults.shouldBe(visible);
         searchResults.$(format(seacrhPositionSelector,position)).click();
     }

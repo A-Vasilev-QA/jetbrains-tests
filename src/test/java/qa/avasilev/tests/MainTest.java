@@ -1,22 +1,28 @@
 package qa.avasilev.tests;
 
+import io.qameta.allure.Description;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import qa.avasilev.pages.IdeaDownloadPage;
-import qa.avasilev.pages.IdeaPage;
+import qa.avasilev.helpers.DriverUtils;
+import qa.avasilev.pages.idea.IdeaDownloadPage;
+import qa.avasilev.pages.idea.IdeaPage;
 import qa.avasilev.pages.MainPage;
 import qa.avasilev.pages.ProductsPage;
+import qa.avasilev.pages.pyCharm.PyCharmDownloadPage;
+import qa.avasilev.pages.pyCharm.PyCharmPage;
 
 import static com.codeborne.selenide.Selenide.*;
 import static com.codeborne.selenide.WebDriverConditions.*;
 import static io.qameta.allure.Allure.step;
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
 
 
 public class MainTest extends TestBase {
+
     @Test
     @DisplayName("IntelliJ IDEA page can be reached from upper menu and contains correct links")
-    void ideaPageCanBeOpenedFrmUpperMenuTest() {
+    void ideaPageCanBeOpenedFromUpperMenuTest() {
 
         step("Open https://www.jetbrains.com/", () -> {
             open("/");
@@ -35,7 +41,7 @@ public class MainTest extends TestBase {
 
         IdeaPage ideaPage = new IdeaPage();
 
-        step("Verify IDEA page", () -> {
+        step("Verify IDEA page's URL and Product header", () -> {
             webdriver().shouldHave(urlContaining("idea"));
             assertEquals("IntelliJ IDEA", ideaPage.secondMenu.getProductHeader());
         });
@@ -63,7 +69,7 @@ public class MainTest extends TestBase {
     }
 
     @Test
-    @DisplayName("IntelliJ IDEA page can be reached from searh field and second menu")
+    @DisplayName("IntelliJ IDEA download page can be reached from search field and second menu")
     public void ideaPageCanBeSearchedTest() {
 
         step("Open https://www.jetbrains.com/", () -> {
@@ -84,7 +90,10 @@ public class MainTest extends TestBase {
 
         IdeaDownloadPage ideaDownloadPage = new IdeaDownloadPage();
 
-        assertEquals("IntelliJ IDEA", ideaDownloadPage.secondMenu.getProductHeader());
+        step("Verify IDEA Download page's URL and Product header", () -> {
+            webdriver().shouldHave(urlContaining("idea"));
+            assertEquals("IntelliJ IDEA", ideaDownloadPage.secondMenu.getProductHeader());
+        });
     }
 
     @Test
@@ -103,23 +112,124 @@ public class MainTest extends TestBase {
 
         ProductsPage productsPage = new ProductsPage();
 
-        step("Search java in input field and add it into language list", () -> {
+        step("Search Java in input field, add it into language list and verify tag", () -> {
             productsPage.searchLanguage("Java");
             productsPage.selectOptionByIndex(0);
         });
 
-        step("Add Kotlin to language list without search", () -> {
+        step("Add Kotlin to language list without search and verify tag", () -> {
             productsPage.clearSearch();
             productsPage.selectOptionByHeader("Kotlin");
         });
 
-        step("Verify, that idea is the first product", () -> {
+        step("Verify, that IDEA is the first product", () -> {
             assertEquals("IntelliJ IDEA", productsPage.getCardHeaderByIndex(0));
         });
     }
 
+    @Test
+    @DisplayName("PyCharm download page can be reached from upper menu and contains correct links")
+    void pyCharmPageCanBeOpenedFromUpperMenuTest() {
 
-/*
+        step("Open https://www.jetbrains.com/", () -> {
+            open("/");
+        });
+
+        MainPage mainPage = new MainPage();
+
+        step("Open Dev tools upper menu", () -> {
+            mainPage.mainMenu.openSubmenu("Developer Tools");
+            assertEquals("IDEs", mainPage.mainMenu.getMainSubmenuFirstHeader());
+        });
+
+        step("Click PyCharm menu item", () -> {
+            mainPage.mainMenu.clickMainSubmenuItem("PyCharm");
+        });
+
+        PyCharmPage pyCharmPage = new PyCharmPage();
+
+        step("Verify PyCharm page's URL and Product header", () -> {
+            webdriver().shouldHave(urlContaining("pycharm"));
+            assertEquals("PyCharm", pyCharmPage.secondMenu.getProductHeader());
+        });
+
+        step("Open download page", () -> {
+            pyCharmPage.clickDownloadButton();
+        });
+
+        PyCharmDownloadPage pyCharmDownloadPage = new PyCharmDownloadPage();
+
+        step("Verify Windows download link", () -> {
+            pyCharmDownloadPage.selectWindows();
+            assertTrue(pyCharmDownloadPage.getProfessionalDownloadUrl().contains("platform=windows"));
+        });
+
+        step("Verify macOS download link", () -> {
+            pyCharmDownloadPage.selectMacOs();
+            assertTrue(pyCharmDownloadPage.getProfessionalDownloadUrl().contains("platform=mac"));
+        });
+
+        step("Verify Linux download link", () -> {
+            pyCharmDownloadPage.selectLinux();
+            assertTrue(pyCharmDownloadPage.getProfessionalDownloadUrl().contains("platform=linux"));
+        });
+    }
+
+    @Test
+    @DisplayName("PyCharm page can be reached from search field and second menu")
+    public void pyCharmPageCanBeSearchedTest() {
+
+        step("Open https://www.jetbrains.com/", () -> {
+            open("/");
+        });
+
+        MainPage mainPage = new MainPage();
+
+        step("Search IntelliJ IDEA and click most relevant result", () -> {
+            mainPage.mainMenu.quickSearch("PyCharm", 0);
+        });
+
+        PyCharmPage pyCharmPage = new PyCharmPage();
+
+        step("Click download button button in the upper menu", () -> {
+            pyCharmPage.secondMenu.secondMenuDownload();
+        });
+
+        PyCharmDownloadPage pyCharmDownloadPage = new PyCharmDownloadPage();
+
+        step("Verify PyCharm Download page's URL and Product header", () -> {
+            webdriver().shouldHave(urlContaining("pycharm"));
+            assertEquals("PyCharm", pyCharmDownloadPage.secondMenu.getProductHeader());
+        });
+    }
+
+    @Test
+    @DisplayName("PyCharm can be found on products page using filters")
+    public void pyCharmCanBeFoundInProducts() {
+
+        step("Open https://www.jetbrains.com/", () -> {
+            open("/");
+        });
+
+        MainPage mainPage = new MainPage();
+
+        step("Click 'All products' link ", () -> {
+            mainPage.openAllProducts();
+        });
+
+        ProductsPage productsPage = new ProductsPage();
+
+        step("Search Python in input field, add it into language list and verify the tag", () -> {
+            productsPage.searchLanguage("Python");
+            productsPage.selectOptionByIndex(0);
+        });
+
+        step("Verify, that PyCharm is the second product", () -> {
+            assertEquals("PyCharm", productsPage.getCardHeaderByIndex(1));
+        });
+    }
+
+
     @Test
     @Description("Autogenerated test")
     @DisplayName("Page title should have header text")
@@ -149,5 +259,5 @@ public class MainTest extends TestBase {
 
             assertThat(consoleLogs).doesNotContain(errorText);
         });
-    }*/
+    }
 }

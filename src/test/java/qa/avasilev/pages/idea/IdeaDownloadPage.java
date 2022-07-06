@@ -1,10 +1,12 @@
-package qa.avasilev.pages;
+package qa.avasilev.pages.idea;
 
 import com.codeborne.selenide.SelenideElement;
+import qa.avasilev.pages.AbstractDownloadPage;
 
-import static com.codeborne.selenide.Condition.*;
+import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Condition.visible;
+import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$$;
-import static com.codeborne.selenide.Selectors.*;
 
 public class IdeaDownloadPage extends AbstractDownloadPage {
 
