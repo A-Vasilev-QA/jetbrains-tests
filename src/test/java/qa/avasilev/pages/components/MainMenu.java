@@ -15,6 +15,7 @@ public class MainMenu {
     private SelenideElement searchButton = $("[data-test='site-header-search-action']");
     private SelenideElement searchInput = $("[data-test='search-input']");
     private SelenideElement searchResults = $("[data-test='search-results']");
+    private SelenideElement profileButton = $("[aria-label='Navigate to profile']");
 
     private String mainMenuButtonSelector = ".main-menu-item[data-test-marker='%s']";
     private String submenuButtonSelector = "a span span";
@@ -39,5 +40,9 @@ public class MainMenu {
 
     public String getMainSubmenuFirstHeader(){
         return mainSubmenu.$("h5").text();
+    }
+
+    public void navigateToProfile() {
+        profileButton.click();
     }
 }

@@ -20,4 +20,8 @@ public interface ProjectConfig extends Config {
     String remoteDriverUrl();
     String videoStorage();
     String webUrl();
+    String login();
+    String password();
+    String profileName();
+
 }
