@@ -6,19 +6,20 @@ import org.junit.jupiter.api.Test;
 import qa.avasilev.config.Project;
 import qa.avasilev.helpers.DriverUtils;
 import qa.avasilev.pages.LoginPage;
+import qa.avasilev.pages.MainPage;
+import qa.avasilev.pages.ProductsPage;
 import qa.avasilev.pages.ProfilePage;
 import qa.avasilev.pages.idea.IdeaDownloadPage;
 import qa.avasilev.pages.idea.IdeaPage;
-import qa.avasilev.pages.MainPage;
-import qa.avasilev.pages.ProductsPage;
 import qa.avasilev.pages.pyCharm.PyCharmDownloadPage;
 import qa.avasilev.pages.pyCharm.PyCharmPage;
 
 import static com.codeborne.selenide.Selenide.*;
-import static com.codeborne.selenide.WebDriverConditions.*;
+import static com.codeborne.selenide.WebDriverConditions.urlContaining;
 import static io.qameta.allure.Allure.step;
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 
 public class MainTest extends TestBase {
@@ -100,7 +101,7 @@ public class MainTest extends TestBase {
     }
 
     @Test
-    @DisplayName("Idea can be found on products page using filters")
+    @DisplayName("IntelliJ IDEA can be found on products page using filters")
     public void ideaCanBeFoundInProducts() {
 
         step("Open https://www.jetbrains.com/", () -> {
@@ -188,7 +189,7 @@ public class MainTest extends TestBase {
 
         MainPage mainPage = new MainPage();
 
-        step("Search IntelliJ IDEA and click most relevant result", () -> {
+        step("Search PyCharm and click most relevant result", () -> {
             mainPage.mainMenu.quickSearch("PyCharm", 0);
         });
 
@@ -233,7 +234,7 @@ public class MainTest extends TestBase {
     }
 
     @Test
-    @DisplayName("Sign into profile")
+    @DisplayName("User can sign into profile with correct credentials")
     public void loginTest() {
         step("Open https://www.jetbrains.com/", () -> {
             open("/");

@@ -1,9 +1,5 @@
 package qa.avasilev.tests;
 
-import qa.avasilev.config.Project;
-import qa.avasilev.helpers.AllureAttachments;
-import qa.avasilev.helpers.DriverSettings;
-import qa.avasilev.helpers.DriverUtils;
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.logevents.SelenideLogger;
 import io.qameta.allure.junit5.AllureJunit5;
@@ -12,6 +8,10 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.extension.ExtendWith;
+import qa.avasilev.config.Project;
+import qa.avasilev.helpers.AllureAttachments;
+import qa.avasilev.helpers.DriverSettings;
+import qa.avasilev.helpers.DriverUtils;
 
 
 @ExtendWith({AllureJunit5.class})
