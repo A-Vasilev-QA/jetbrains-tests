@@ -1,6 +1,22 @@
-# <img width="10%" align="left" title="IntelliJ IDEA" src="images/logo/JetBrains.svg"> Test automation project for JetBrains main page
-<a target="_blank" href="https://jetbrains.com">JetBrains website link</a>
+# Test automation project for JetBrains main page
+<a target="_blank" href="https://jetbrains.com">JetBrains website link</a> <img width="6%" align="left" title="IntelliJ IDEA" src="images/logo/JetBrains.svg">
 ####
+
+# Tools and technologies
+<p align="left">
+<img width="4%" title="IntelliJ IDEA" src="images/logo/Intelij_IDEA.svg">
+<img width="4%" title="Java" src="images/logo/Java.svg">
+<img width="4%" title="Selenium" src="images/logo/Selenium.svg">
+<img width="4%" title="Selenide" src="images/logo/Selenide.svg">
+<img width="4%" title="Selenoid" src="images/logo/Selenoid.svg">
+<img width="4%" title="Allure Report" src="images/logo/Allure_Report.svg">
+<img width="4%" title="Gradle" src="images/logo/Gradle.svg">
+<img width="4%" title="JUnit5" src="images/logo/JUnit5.svg">
+<img width="4%" title="GitHub" src="images/logo/GitHub.svg">
+<img width="4%" title="Jenkins" src="images/logo/Jenkins.svg"> 
+<img width="4%" title="Allure TestOps" src="images/logo/Allureee.svg">
+<img width="4%" title="Jira" src="images/logo/Jira.svg">
+</p>
 
 # Jenkins job
 <a target="_blank" href="https://jenkins.autotests.cloud/job/%s">jenkins.autotests.cloud/job/%s</a>
