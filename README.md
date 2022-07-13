@@ -1,8 +1,7 @@
-# Test automation project for JetBrains main page
-<a target="_blank" href="https://jetbrains.com">JetBrains website link</a> <img width="6%" align="left" title="IntelliJ IDEA" src="images/logo/JetBrains.svg">
-####
+## Test automation project for JetBrains main page
+<img width="4%" align="left" title="IntelliJ IDEA" src="images/logo/JetBrains.svg"><a target="_blank" href="https://jetbrains.com">JetBrains website link</a> 
 
-# Tools and technologies
+### Tools and technologies
 <p align="left">
 <img width="4%" title="IntelliJ IDEA" src="images/logo/Intelij_IDEA.svg">
 <img width="4%" title="Java" src="images/logo/Java.svg">
@@ -18,13 +17,14 @@
 <img width="4%" title="Jira" src="images/logo/Jira.svg">
 </p>
 
-# Jenkins job
-<a target="_blank" href="https://jenkins.autotests.cloud/job/%s">jenkins.autotests.cloud/job/%s</a>
+### Implemented test scenarios
 
+### Jenkins job
+<a target="_blank" href="https://jenkins.autotests.cloud/job/C12-AVasilevQA-JetBrains-Tests/">Job link</a>
 
-# USAGE examples
+### USAGE examples
 
-### For run remote tests need fill remote.properties or to pass value:
+#### For remote launch it's needed to fill remote.properties or to pass value:
 
 * browser (default chrome)
 * browserVersion (default 89.0)
@@ -49,6 +49,8 @@ Serve report:
 ```bash
 allure serve build/allure-results
 ```
+
+
 
 :heart: <a target="_blank" href="https://qa.guru">qa.guru</a><br/>
 :blue_heart: <a target="_blank" href="https://t.me/qa_automation">t.me/qa_automation</a>
