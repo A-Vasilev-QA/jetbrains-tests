@@ -1,6 +1,8 @@
 ## Test automation project for JetBrains main page
 <img width="4%" align="left" title="IntelliJ IDEA" src="images/logo/JetBrains.svg"><a target="_blank" href="https://jetbrains.com">JetBrains website link</a> 
 
+### Table of contents
+
 ### Tools and technologies
 <p align="left">
 <img width="4%" title="IntelliJ IDEA" src="images/logo/Intelij_IDEA.svg">
@@ -22,8 +24,7 @@
 ### Jenkins job
 <a target="_blank" href="https://jenkins.autotests.cloud/job/C12-AVasilevQA-JetBrains-Tests/">Job link</a>
 
-### USAGE examples
-
+### Usage examples
 #### For remote launch it's needed to fill remote.properties or to pass value:
 
 * browser (default chrome)
@@ -49,7 +50,13 @@ Serve report:
 ```bash
 allure serve build/allure-results
 ```
+### Reporting in Allure
 
+### Integration with Allure report and Jira
+
+### Notifications 
+
+### Video example
 
 
 :heart: <a target="_blank" href="https://qa.guru">qa.guru</a><br/>
