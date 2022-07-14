@@ -20,6 +20,13 @@
 </p>
 
 ## <img width="4%" align="center" title="JUnit5" src="images/logo/JUnit5.svg"> Implemented test scenarios
+- Verify that page title contains header text
+- IntelliJ IDEA page can be reached from upper menu and contains correct links
+- IntelliJ IDEA download page can be reached from search field and second menu
+- IntelliJ IDEA can be found on products page using filters
+- PyCharm page can be reached from upper menu and contains correct links
+- PyCharm download page can be reached from search field and second menu
+- PyCharm can be found on products page using filters
 
 ## <img width="4%" align="center" title="Jenkins" src="images/logo/Jenkins.svg"> Jenkins job
 <a target="_blank" href="https://jenkins.autotests.cloud/job/C12-AVasilevQA-JetBrains-Tests/">Job link</a>
@@ -52,11 +59,24 @@ allure serve build/allure-results
 ```
 ## <img width="4%" align="center" title="Allure Report" src="images/logo/Allure_Report.svg"> Reporting in Allure
 
+#### After test execution a report is created
+
+#### Report overview
+<img width="800" align="center" title="Allure Report" src="images/screenshots/Allure-report-overview.jpg">
+
+#### Screeen with test suite
+<img width="800" align="center" title="Allure Report" src="images/screenshots/Allure-report-suite.jpg">
+
+
 ## <img width="4%" align="center" title="Allure TestOps" src="images/logo/Allureee.svg"> Integration with Allure report and Jira
 
 ## <img width="4%" align="center" title="Telegram" src="images/logo/Telegram.svg"> Notifications 
 
 ## <img width="4%" align="center" title="Selenoid" src="images/logo/Selenoid.svg"> Video example
+#### There is an option to create a video for every test executed in suite
+
+#### A video example:
+<img align="center" title="Selenoid" src="images/screenshots/Selenoid.gif">
 
 
 :heart: <a target="_blank" href="https://qa.guru">qa.guru</a><br/>
