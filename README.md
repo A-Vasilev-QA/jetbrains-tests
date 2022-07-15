@@ -2,6 +2,13 @@
 ##### <img width="4%" align="center" title="JetBrains" src="images/logo/JetBrains.svg"><a target="_blank" href="https://jetbrains.com">JetBrains website link</a> 
 
 ### Table of contents
+- [Tools and technologies](#%EF%B8%8F-tools-and-technologies)
+- [Implemented test scenarios](#-implemented-test-scenarios)
+- [Jenkins job](#-jenkins-job)
+- [Reporting in Allure](#-reporting-in-allure)
+- [Integration with Allure TestOps and Jira](#-integration-with-allure-testops-and-jira)
+- [Notifications](#-notifications)
+- [Video example](#-video-example)
 
 ## ⚙️ Tools and technologies
 <p align="left">
