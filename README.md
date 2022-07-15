@@ -59,7 +59,7 @@ allure serve build/allure-results
 ```
 ## <img width="4%" align="center" title="Allure Report" src="images/logo/Allure_Report.svg"> Reporting in Allure
 
-#### After test execution a report is created
+#### After test execution a report is created:
 
 #### Report overview
 <img width="800" align="center" title="Allure Report" src="images/screenshots/Allure-report-overview.jpg">
