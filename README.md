@@ -68,16 +68,31 @@ allure serve build/allure-results
 <img width="800" align="center" title="Allure Report" src="images/screenshots/Allure-report-suite.jpg">
 
 
-## <img width="4%" align="center" title="Allure TestOps" src="images/logo/Allureee.svg"> Integration with Allure report and Jira
+## <img width="4%" align="center" title="Allure TestOps" src="images/logo/Allureee.svg"> Integration with Allure TestOps and Jira
+
+#### Integration with TMS Allure TestOps and Jira is implemented:
+
+#### Allure TestOps Dashboard
+<img width="800" align="center" title="Allure TestOps" src="images/screenshots/Allure-test-ops-dashboard.png">
+
+#### Allure TestOps Suite
+<img width="800" align="center" title="Allure TestOps" src="images/screenshots/Allure-test-ops.png">
+
+#### JIRA Task
+<img width="800" align="center" title="Jira" src="images/screenshots/Jira.jpg">
 
 ## <img width="4%" align="center" title="Telegram" src="images/logo/Telegram.svg"> Notifications 
+#### An option to send notifications via email and messengers is implemented
+#### For example notifications in Telegram:
+<p align="center">
+<img width="400" title="Telegram" src="images/screenshots/Telegram.png">  <img width="410" title="Telegram" src="images/screenshots/Telegram-broken.png">
+</p>
 
 ## <img width="4%" align="center" title="Selenoid" src="images/logo/Selenoid.svg"> Video example
-#### There is an option to create a video for every test executed in suite
+#### There is an option to provide a video for every test executed in suite
 
 #### A video example:
 <img align="center" title="Selenoid" src="images/screenshots/Selenoid.gif">
-
 
 :heart: <a target="_blank" href="https://qa.guru">qa.guru</a><br/>
 :blue_heart: <a target="_blank" href="https://t.me/qa_automation">t.me/qa_automation</a>
